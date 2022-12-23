@@ -749,6 +749,7 @@ margin-left: 70px;
 }
 .img-overlay{
   position: relative;
+  overflow: hidden;
 }
 .img-overlay::before{
   content: "";

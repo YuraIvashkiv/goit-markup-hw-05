@@ -268,6 +268,7 @@ transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cub
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden{
   opacity: 0;
@@ -280,19 +281,28 @@ transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cub
   transform: translate(-50%, -50%);
   width: 528px;
   height: 581px;
-  
-  background-color: #fff;
+    background-color: #fff;
 }
 .button-close{
   position: absolute;
-  top: 8px;
-    right: 8px;
-  background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  top: 0;
+  right: 0;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+     margin-right: 8px;
+    padding: 6px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
-}
-/* ефект фокусу і ховера для кнопки в герої */
+    background: #FFFFFF;
+   }
+     .button-close:hover .modal-icon,
+     .button-close:focus .modal-icon{
+    fill:var(--accent-color);
+   }
+        /* ефект фокусу і ховера для кнопки в герої */
 .hero-button:hover,
 .hero-button:focus{
   color: var(--first-background);
@@ -500,8 +510,7 @@ margin-right: 0;
          border-radius: 4px;
          width: 170px;
          height: 92px;
-         border: 1px solid #AFB1B8;
-         margin-right: 30px;
+        margin-right: 30px;
          cursor: pointer;
         color: #AFB1B8;
          }
@@ -516,7 +525,7 @@ margin-right: 0;
     height: 100%;
    color: #AFB1B8;
    border: 1px solid #AFB1B8;
-   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
      }
        .clients-link:hover,
@@ -735,18 +744,25 @@ margin-left: 70px;
    margin-left: 0;
   flex-basis: calc((100% - 60px) / 3);
     margin-right: 30px;
-  border-bottom: 1px solid #EEEEEE;
-   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-              .flex-item:hover{
+            }
+       
+              /* .flex-item:hover{
           box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-         }
+         } */
    .flex-item:nth-child(3n) {
   margin-right: 0;
 } 
 .flex-item:not(:nth-last-child(-n + 3)) {
   margin-bottom: 30px;
 }
+ .flex-link {
+   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   display: block;
+ }
+ .flex-link:hover,
+ .flex-link:focus {
+   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+ }
 .img-overlay{
   position: relative;
   overflow: hidden;
@@ -761,13 +777,17 @@ margin-left: 70px;
   display: inline-block;
   background-color: rgba(33, 150, 243, 0.9);
   /* opacity: 0; */
-  transform: translateY(100%);
+  transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   
   }
-    .flex-item:hover .img-overlay::before{
+    .flex-link:hover .img-overlay::before,
+        .flex-link:focus .img-overlay::before{
       transform: translateY(0);
       opacity: 1;
+    }
+    .flex-img{
+      display: block;
     }
 .flex-text {
   position: absolute;
@@ -780,18 +800,22 @@ margin-left: 70px;
   color: var(--first-background);
   /* opacity: 0; */
   transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.flex-item:hover .flex-text{
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   }
+.flex-link:hover .flex-text,
+.flex-link:focus .flex-text{
 transform: translateY(0);
   opacity: 1;
 }
 /* Стилізація заголовка */
 .header-text {
-    margin-top: 20px;
-    margin-right: 24px;
-    margin-bottom: 20px;
-    margin-left: 24px;
+    padding-top: 20px;
+    padding-right: 24px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+    border-right: 1px solid #EEEEEE;
+    border-left: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
 }
 .header-img {
   color: var(--main-color-text);
